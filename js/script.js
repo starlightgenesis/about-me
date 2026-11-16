@@ -126,4 +126,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         animateCursorOrb();
     }
+
+    const shootingStarsContainer = document.getElementById("shootingStars");
+    if (shootingStarsContainer) {
+        function spawnShootingStar() {
+            const star = document.createElement("span");
+            star.className = "shooting-star";
+
+            const startX = Math.random() * (window.innerWidth * 0.85) + window.innerWidth * 0.15;
+            const startY = Math.random() * (window.innerHeight * 0.85);
+            const tailLength = Math.floor(Math.random() * 80) + 70;
+
+            star.style.left = `${startX}px`;
+            star.style.top = `${startY}px`;
+            star.style.width = `${tailLength}px`;
+
+            shootingStarsContainer.appendChild(star);
+
+            star.addEventListener("animationend", () => {
+                star.remove();
+            });
+        }
+
+        setTimeout(spawnShootingStar, 1200);
+        setInterval(() => {
+            if (!document.hidden) {
+                spawnShootingStar();
+            }
+        }, 1200);
+    }
 });
