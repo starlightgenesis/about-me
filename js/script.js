@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = "glcoronel1@up.edu.ph";
         navigator.clipboard.writeText(email).then(() => {
             toast.classList.add("toast-show");
-            setTimeout(() => toast.classList.remove("show"), 2600);
+            setTimeout(() => toast.classList.remove("toast-show"), 2600);
         });
     });
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         .catch(() => {
-
+            // Keeps static HTML fallback if opened directly via file://
         });
 
     const filterBtns = document.querySelectorAll(".filter-btn");
@@ -98,4 +98,32 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+
+    const cursorOrb = document.getElementById("cursorOrb");
+    if (cursorOrb) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let orbX = mouseX;
+        let orbY = mouseY;
+
+        document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorOrb.style.opacity = "0.95";
+        });
+
+        document.addEventListener("mouseleave", () => {
+            cursorOrb.style.opacity = "0";
+        });
+
+        function animateCursorOrb() {
+            orbX += (mouseX - orbX) * 0.12;
+            orbY += (mouseY - orbY) * 0.12;
+            cursorOrb.style.left = `${orbX}px`;
+            cursorOrb.style.top = `${orbY}px`;
+            requestAnimationFrame(animateCursorOrb);
+        }
+
+        animateCursorOrb();
+    }
 });
