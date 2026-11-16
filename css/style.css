@@ -61,6 +61,18 @@ body {
     animation: floatSlow 1s ease-in-out infinite alternate-reverse;
 }
 
+.orb-cursor {
+    width: 24rem;
+    height: 24rem;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.85) 0%, rgba(139, 92, 246, 0.4) 45%, transparent 70%);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease;
+    will-change: left, top;
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -533,6 +545,12 @@ button:focus-visible {
     }
 }
 
+@media (pointer: coarse) {
+    .orb-cursor {
+        display: none;   
+    }
+}
+
 @media (max-width: 37.5rem) {
     .nav-links {
         gap: 0.85rem;
@@ -559,4 +577,5 @@ button:focus-visible {
     h2 {
         font-size: 1.25rem;
     }
+
 }
