@@ -73,6 +73,37 @@ body {
     will-change: left, top;
 }
 
+.shooting-stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.shooting-star {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(243, 232, 255, 0.95), rgba(168, 85, 247, 0.5), transparent);
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.85));
+    opacity: 0;
+    animation: shootAcross 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.shooting-star::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px 2px var(--accent-secondary);
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -539,6 +570,23 @@ button:focus-visible {
     }
 }
 
+@keyframes shootAcross {
+    0% {
+        opacity: 0;
+        transform: rotate(-35deg) translateX(0);
+    }
+    15% {
+        opacity: 0.85;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-35deg) translateX(-480px);
+    }
+}
+
 @media (max-width: 48rem) {
     .interests-grid {
         grid-template-columns: 1fr;
@@ -548,6 +596,12 @@ button:focus-visible {
 @media (pointer: coarse) {
     .orb-cursor {
         display: none;   
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shooting-stars {
+        display: none;
     }
 }
 
