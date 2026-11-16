@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+
+    <project id="p1">
+        <title>Church Multimedia Production</title>
+        <description>Serving as media head for church multimedia production, managing lights, sound, and LED wall graphics during live services.</description>
+        <date>2018-07-15</date>
+    </project>
+
+    <project id="p2">
+        <title>Church Production &amp; Multimedia Workshop</title>
+        <description>A workshop series and speaking engagement focused on training church production teams on video editing and presentation workflows.</description>
+        <date>2025-11-20</date>
+    </project>
+
+    <project id="p3">
+        <title>Educational Graphic &amp; Video Materials</title>
+        <description>Creating visual graphics and short-form video edits using CapCut and graphic design tools for educational advocacy and teaching.</description>
+        <date>2025-03-27</date>
+    </project>
+
+</projects>
