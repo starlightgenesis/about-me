@@ -196,6 +196,7 @@ small {
         #ffffff 100%
     );
     background-size: 200% auto;
+    font-size: 55px;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
