@@ -1,22 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projects>
-
     <project id="p1">
         <title>Church Multimedia Production</title>
-        <description>Serving as media head for church multimedia production, managing lights, sound, and LED wall graphics during live services.</description>
         <date>2018-07-15</date>
+        <description>Serving as media head for church multimedia production, managing lights, sound, &amp; LED wall graphics during live services in our church and other churches.</description>
+        <photos>
+            <photo alt="A photo of myself operating media equipment for church production.">images/my-project-photo-1.jpg</photo>
+            <photo alt="A photo of my computer setup while operating a livestream and Google Meet.">images/my-project-photo-2.jpg</photo>
+            <photo alt="A photo of my setup during an organization's anniversary event.">images/my-project-photo-3.jpg</photo>
+            <photo alt="A photo of my setup during an organization's youth camp.">images/my-project-photo-4.jpg</photo>
+            <photo alt="A photo of my setup doing a presentation in other church's meeting.">images/my-project-photo-5.jpg</photo>
+            <photo alt="A photo of myself editing a rushed presentation in an anniversary event.">images/my-project-photo-6.jpg</photo>
+            <photo alt="A photo of my setup during an organization's anniversary event.">images/my-project-photo-7.jpg</photo>
+            <photo alt="A photo of my setup during an organization's youth conference.">images/my-project-photo-8.jpg</photo>
+            <photo alt="A photo of myself together with the outside production team during a church concert.">images/my-project-photo-9.jpg</photo>
+            <photo alt="A photo of myself controlling the visuals for the LED wall in a concert.">images/my-project-photo-10.jpg</photo>
+        </photos>
     </project>
 
     <project id="p2">
-        <title>Church Production &amp; Multimedia Workshop</title>
-        <description>A workshop series and speaking engagement focused on training church production teams on video editing and presentation workflows.</description>
-        <date>2025-11-20</date>
+        <title>Church Production &amp; Multimedia Trainings and Tutorials</title>
+        <date>2024-11-20</date>
+        <description>Teaching and training other members focused on church production teams on video editing, presentation workflows, and productions.</description>
+        <photos>
+            <photo alt="A photo of myself with my co-trainors and trainees.">images/my-training-photo-1.jpg</photo>
+            <photo alt="A group photo of my trainees in a live production event.">images/my-workshop-photo-2.jpg</photo>
+            <photo alt="A photo of a multiview screen used in live production during training.">images/my-workshop-photo-3.jpg</photo>
+        </photos>
     </project>
 
     <project id="p3">
         <title>Educational Graphic &amp; Video Materials</title>
-        <description>Creating visual graphics and short-form video edits using CapCut and graphic design tools for educational advocacy and teaching.</description>
-        <date>2025-03-27</date>
+        <date>2025-03-26</date>
+        <description>Creating visual graphics and short-form video edits using CapCut and other graphic design tools for educational advocacy and teaching.</description>
+        <photos>
+            <photo alt="A photo of editing using Adobe Lightroom.">images/my-education-photo-1.jpg</photo>
+            <photo alt="A photo of video editing using Adobe Premiere Pro.">images/my-education-photo-2.jpg</photo>
+            <photo alt="A photo of Genesis Faith Coronel editing a UPOU video.">images/my-education-photo-3.jpg</photo>
+        </photos>
     </project>
 
+    <project id="p4">
+        <title>Teaching &amp; Advocating for Children's Spiritual Development</title>
+        <date>2024-06-16</date>
+        <description>Experienced teaching kids about biblical foundations and spiritual development.</description>
+        <photos>
+            <photo alt="A group photo of children with Genesis Faith Coronel.">images/my-teaching-photo-1.jpg</photo>
+            <photo alt="A group photo of children with Genesis Faith Coronel.">images/my-teaching-photo-2.jpg</photo>
+            <photo alt="A group photo of children with Genesis Faith Coronel.">images/my-teaching-photo-3.jpg</photo>
+            <photo alt="A group photo of children with Genesis Faith Coronel.">images/my-teaching-photo-4.jpg</photo>
+            <photo alt="A group photo of children with Genesis Faith Coronel.">images/my-teaching-photo-5.jpg</photo>
+            <photo alt="A group photo of children with Genesis Faith Coronel.">images/my-teaching-photo-6.jpg</photo>
+        </photos>
+    </project>
 </projects>
