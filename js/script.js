@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initProjectSlideshows();
 
     const projectsGrid = document.getElementById("projects-grid");
-    fetch("projects.xml")
+    fetch("xml/projects.xml")
         .then((response) => {
             if (!response.ok) throw new Error("XML not fetched via server");
             return response.text();
