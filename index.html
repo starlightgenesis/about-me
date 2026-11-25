@@ -9,14 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2"">
 </head>
 <body>
 
     <div class="bg-orb orb-top-left" aria-hidden="true"></div>
     <div class="bg-orb orb-bottom-right" aria-hidden="true"></div>
     <div class="bg-orb orb-cursor" id="cursorOrb" aria-hidden="true"></div>
+    <div class="twinkling-stars" id="twinklingStars" aria-hidden="true"></div>
     <div class="shooting-stars" id="shootingStars" aria-hidden="true"></div>
+    <div class="cursor-particles" id="cursorParticles" aria-hidden="true"></div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -61,7 +63,7 @@
         <section id="projects" class="reveal">
             <div class="section-header-flex">
                 <h2>PASSION PROJECTS</h2>
-                <div class="filter-group" role="group" aria-label="Filter projects">
+                <div class="filter-group">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="recent">Recent</button>
                     <button class="filter-btn" data-filter="archive">Archive</button>
