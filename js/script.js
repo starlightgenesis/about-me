@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
         .catch(() => {
-            // Keeps static HTML fallback if opened directly via file://
+
         });
 
     const filterBtns = document.querySelectorAll(".filter-btn");
@@ -171,31 +171,102 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!previewBox || !previewImg) return;
 
+        function closePreviewWithAnimation() {
+            if (!previewBox.classList.contains("open") || previewBox.classList.contains("closing")) {
+                return;
+            }
+
+            tags.forEach((t) => t.classList.remove("active"));
+            previewBox.classList.add("closing");
+
+            previewBox.addEventListener("animationend", () => {
+                previewBox.classList.remove("open", "closing");
+            }, { once: true });
+        }
+
         tags.forEach((tag) => {
             tag.addEventListener("click", () => {
                 const isAlreadyActive = tag.classList.contains("active");
 
-                tags.forEach((t) => t.classList.remove("active"));
-
                 if (isAlreadyActive) {
-                    previewBox.classList.remove("open");
-                } else {
-                    tag.classList.add("active");
-                    previewImg.src = tag.getAttribute("data-img");
-                    previewImg.alt = tag.getAttribute("data-caption") || tag.textContent;
-                    previewCaption.textContent = tag.getAttribute("data-caption") || tag.textContent;
-                    previewBox.classList.add("open");
+                    closePreviewWithAnimation();
+                    return;
                 }
+
+                tags.forEach((t) => t.classList.remove("active"));
+                previewBox.classList.remove("closing");
+
+                tag.classList.add("active");
+                previewImg.src = tag.getAttribute("data-img");
+                previewImg.alt = tag.getAttribute("data-caption") || tag.textContent;
+                previewCaption.textContent = tag.getAttribute("data-caption") || tag.textContent;
+                previewBox.classList.add("open");
             });
         });
 
         closeBtn?.addEventListener("click", () => {
-            tags.forEach((t) => t.classList.remove("active"));
-            previewBox.classList.remove("open");
+            closePreviewWithAnimation();
         });
     });
 
+    const twinklingStarsContainer = document.getElementById("twinklingStars");
+    if (twinklingStarsContainer) {
+        const starCount = 95;
+        const fragment = document.createDocumentFragment();
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement("span");
+            star.className = "twinkle-star";
+
+            const size = (Math.random() * 2.4 + 1).toFixed(2);
+            const left = (Math.random() * 100).toFixed(2);
+            const top = (Math.random() * 100).toFixed(2);
+            const duration = (Math.random() * 3.5 + 1.8).toFixed(2);
+            const delay = (Math.random() * 4).toFixed(2);
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${left}%`;
+            star.style.top = `${top}%`;
+            star.style.setProperty("--duration", `${duration}s`);
+            star.style.setProperty("--delay", `${delay}s`);
+
+            fragment.appendChild(star);
+        }
+
+        twinklingStarsContainer.appendChild(fragment);
+    }
+
     const cursorOrb = document.getElementById("cursorOrb");
+    const cursorParticlesContainer = document.getElementById("cursorParticles");
+    let lastParticleTime = 0;
+
+    function spawnCursorParticle(x, y) {
+        if (!cursorParticlesContainer) return;
+
+        const particle = document.createElement("span");
+        particle.className = "cursor-particle";
+
+        const size = Math.floor(Math.random() * 9) + 6; // 6px to 14px circles
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 36 + 14;
+        const dx = `${Math.cos(angle) * distance}px`;
+        const dy = `${Math.sin(angle) * distance}px`;
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${x}px`;
+        particle.style.top = `${y}px`;
+        particle.style.setProperty("--dx", dx);
+        particle.style.setProperty("--dy", dy);
+
+        cursorParticlesContainer.appendChild(particle);
+
+        particle.addEventListener("animationend", () => {
+            particle.remove();
+        });
+    }
+
     if (cursorOrb) {
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -206,6 +277,12 @@ document.addEventListener("DOMContentLoaded", () => {
             mouseX = e.clientX;
             mouseY = e.clientY;
             cursorOrb.style.opacity = "0.95";
+
+            const now = performance.now();
+            if (now - lastParticleTime > 28) {
+                spawnCursorParticle(mouseX, mouseY);
+                lastParticleTime = now;
+            }
         });
 
         document.addEventListener("mouseleave", () => {
